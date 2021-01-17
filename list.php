@@ -30,15 +30,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Employees Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Add New Employee</a>
+                        <h2 class="pull-left">Dances Details</h2>
+                        <a href="create.php" class="btn btn-success pull-right">Add Dance</a>
                     </div>
                     <?php
                     // Include config file
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM employees";
+                    $sql = "SELECT * FROM dances";
                      // Executing and getting results
                     $mysqli_result = mysqli_query($link, $sql); 
                     // Checking results
@@ -48,10 +48,13 @@
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
-                                        echo "<th>Name</th>";
-                                        echo "<th>Address</th>";
-                                        echo "<th>Salary</th>";
-                                        echo "<th>Action</th>";
+                                        echo "<th>Dance Name</th>";
+                                        echo "<th>Dance Type</th>";
+                                        echo "<th>Description</th>";
+                                        echo "<th>Did You Know?</th>";
+                                        echo "<th>State</th>";
+                                        echo "<th>Keywords</th>";
+                                        echo "<th>Image</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -59,9 +62,13 @@
                                 while($row = mysqli_fetch_array($mysqli_result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['name'] . "</td>";
-                                        echo "<td>" . $row['address'] . "</td>";
-                                        echo "<td>" . $row['salary'] . "</td>";
+                                        echo "<td>" . $row['Dance Name'] . "</td>";
+                                        echo "<td>" . $row['Dance Type'] . "</td>";
+                                        echo "<td>" . $row['Description'] . "</td>";
+                                        echo "<td>" . $row['Did You Know?'] . "</td>";
+                                        echo "<td>" . $row['State'] . "</td>";
+                                        echo "<td>" . $row['Keywords'] . "</td>";
+                                        echo "<td>" . $row['Image'] . "</td>";
                                         echo "<td>";
                                         // Adding links for Read, Update and Delete records. Images are coming from bootstrap CSS
                                             echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
