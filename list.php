@@ -25,6 +25,19 @@
     </script>
 </head>
 <body>
+<div class="text-center">
+  <h1>A Bite of Culture in Dances</h1>
+  <p>Resize this responsive page to see the effect!</p>
+</div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
