@@ -8,5 +8,5 @@ CREATE TABLE dances (
     key_words VARCHAR(500) DEFAULT NULL COMMENT 'any key words separate by comma',
     status VARCHAR(25) NOT NULL  DEFAULT 'proposed' COMMENT 'proposed, approved, writeup_done, art_work_done, designed, completed',
     image_url VARCHAR(100) NOT NULL,
-    notes VARCHAR(500) 
+    notes VARCHAR(500)
 );
