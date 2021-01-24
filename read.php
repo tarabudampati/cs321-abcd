@@ -5,7 +5,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     require_once "config.php";
      $param_id = trim($_GET["id"]);
     // Prepare a select statement
-    $sql = "SELECT * FROM employees WHERE id = '$param_id'";
+    $sql = "SELECT * FROM dances WHERE id = '$param_id'";
     // Executing query and getting result
     $mysqli_result = mysqli_query($link, $sql); 
     // Checking result
@@ -16,9 +16,13 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
             $row = mysqli_fetch_array($mysqli_result, MYSQLI_ASSOC);
                 
             // Retrieve individual field value
-            $name = $row["name"];
-            $address = $row["address"];
-            $salary = $row["salary"];
+            $id = $row['id'];
+            $name = $row['name'];
+            $description = $row['description'];
+            $did_you_know = $row['did_you_know'];
+            $type = $row['type'];
+            $state_name = $row['state_name'];
+            $image_url = $row['image_url'];
         } else{
             // URL doesn't contain valid id parameter. Redirect to error page
             header("location: error.php");
@@ -58,16 +62,32 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <h1>View Record</h1>
                     </div>
                     <div class="form-group">
+                        <label>ID</label>
+                        <p class="form-control-static"><?php echo $row['id']; ?></p>
+                    </div>
+                    <div class="form-group">
                         <label>Name</label>
-                        <p class="form-control-static"><?php echo $row["name"]; ?></p>
+                        <p class="form-control-static"><?php echo $row['name']; ?></p>
                     </div>
                     <div class="form-group">
-                        <label>Address</label>
-                        <p class="form-control-static"><?php echo $row["address"]; ?></p>
+                        <label>Description</label>
+                        <p class="form-control-static"><?php echo $row['description']; ?></p>
                     </div>
                     <div class="form-group">
-                        <label>Salary</label>
-                        <p class="form-control-static"><?php echo $row["salary"]; ?></p>
+                        <label>Did You Know?</label>
+                        <p class="form-control-static"><?php echo $row['did_you_know']; ?></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <p class="form-control-static"><?php echo $row['type']; ?></p>
+                    </div>
+                    <div class="form-group">
+                        <label>State Name</label>
+                        <p class="form-control-static"><?php echo $row['state_name']; ?></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <p class="form-control-static"><?php echo $row['image_url']; ?></p>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Back</a></p>
                 </div>
