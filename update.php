@@ -1,5 +1,5 @@
 <?php
-// Include config file
+// Include config file - updated by Lavanya
 require_once "config.php";
  
 // Define variables and initialize with empty values
