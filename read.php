@@ -43,6 +43,50 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+  <h1><center>ABCD Project</center></h1>      
+</div>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="#"> Home </a></li>
+      <li><a href="#"> List </a></li>
+      <li><a href="#"> Read </a></li>
+      <li><a href="#"> Create</a></li>
+      <li><a href="#">Update</a></li>
+    </ul>
+        </div>
+</nav>
+</body>
+<head>
+<style>
+.form-group {
+  border: 2px solid black;
+  font-family: "Monaco", "Lucinda Console", monospace;
+}
+.form-group {
+  text-align: center;
+}
+.form-group-2 {
+  border: 1px solid black;
+}
+</style>
     <meta charset="UTF-8">
     <title>View Record</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
@@ -59,34 +103,48 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h1>View Record</h1>
+                        <h1><center>View Record</center></h1>
                     </div>
                     <div class="form-group">
+                    <div class = "form-group-2">
                         <label>ID</label>
+                    </div>
                         <p class="form-control-static"><?php echo $row['id']; ?></p>
                     </div>
                     <div class="form-group">
+                    <div class = "form-group-2">
                         <label>Name</label>
+                    </div>
                         <p class="form-control-static"><?php echo $row['name']; ?></p>
                     </div>
                     <div class="form-group">
+                    <div class = "form-group-2">
                         <label>Description</label>
+                    </div>
                         <p class="form-control-static"><?php echo $row['description']; ?></p>
                     </div>
                     <div class="form-group">
+                    <div class = "form-group-2">
                         <label>Did You Know?</label>
+                        </div>
                         <p class="form-control-static"><?php echo $row['did_you_know']; ?></p>
                     </div>
                     <div class="form-group">
+                    <div class = "form-group-2">
                         <label>Type</label>
+                        </div>
                         <p class="form-control-static"><?php echo $row['type']; ?></p>
                     </div>
                     <div class="form-group">
+                    <div class = "form-group-2">
                         <label>State Name</label>
+                        </div>
                         <p class="form-control-static"><?php echo $row['state_name']; ?></p>
                     </div>
                     <div class="form-group">
+                    <div class = "form-group-2">
                         <label>Image URL</label>
+                    </div>
                         <p class="form-control-static"><?php echo $row['image_url']; ?></p>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Back</a></p>
