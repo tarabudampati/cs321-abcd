@@ -25,36 +25,20 @@
     </script>
 </head>
 <body>
-<div class="text-center">
-<div class="row">
-<div class="col-md-3"><a href="index.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a></div>
-<div class="col-md-6" text-center><h1>A Bite of Culture in Dances</h1></div>
-<div class="col-md-3"></div>
-</div>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right ">
-      <li><a href="about.php">About</a></li>
-      <li><a href="help.php">Help</a></li>
-      <li><a href="list.php">List</a></li>
-      <li><a href="preferences.php">Preferences</a></li>
-    </ul>
-  </div>
-</nav>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Employees Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Add New Employee</a>
+                        <h2 class="pull-left">Dances Details</h2>
+                        <a href="create.php" class="btn btn-success pull-right">Add Dance</a>
                     </div>
                     <?php
                     // Include config file
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM employees";
+                    $sql = "SELECT * FROM dances";
                      // Executing and getting results
                     $mysqli_result = mysqli_query($link, $sql); 
                     // Checking results
@@ -64,20 +48,28 @@
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
-                                        echo "<th>Name</th>";
-                                        echo "<th>Address</th>";
-                                        echo "<th>Salary</th>";
-                                        echo "<th>Action</th>";
+                                        echo "<th>Dance Name</th>";
+                                        echo "<th>Dance Type</th>";
+                                        echo "<th>Description</th>";
+                                        echo "<th>Did You Know?</th>";
+                                        echo "<th>State</th>";
+                                        echo "<th>Keywords</th>";
+                                        echo "<th>Image</th>";
+                                        echo "<th>Actions</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
-                                // Fetching each row from results and displaying
+                                // Fetching each row from results and displaying e
                                 while($row = mysqli_fetch_array($mysqli_result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['name'] . "</td>";
-                                        echo "<td>" . $row['address'] . "</td>";
-                                        echo "<td>" . $row['salary'] . "</td>";
+                                        echo "<td>" . $row['type'] . "</td>";
+                                        echo "<td>" . $row['description'] . "</td>";
+                                        echo "<td>" . $row['did_you_know'] . "</td>";
+                                        echo "<td>" . $row['state_name'] . "</td>";
+                                        echo "<td>" . $row['key_words'] . "</td>";
+                                        echo "<td>" . $row['image_url'] . "</td>";
                                         echo "<td>";
                                         // Adding links for Read, Update and Delete records. Images are coming from bootstrap CSS
                                             echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
