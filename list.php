@@ -26,15 +26,18 @@
 </head>
 <body>
 <div class="text-center">
-  <h1>A Bite of Culture in Dances</h1>
-  <p>Resize this responsive page to see the effect!</p>
+<div class="row">
+<div class="col-md-3"><a href="index.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a></div>
+<div class="col-md-6" text-center><h1>A Bite of Culture in Dances</h1></div>
+<div class="col-md-3"></div>
 </div>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+    <ul class="nav navbar-nav navbar-right ">
+      <li><a href="about.php">About</a></li>
+      <li><a href="help.php">Help</a></li>
+      <li><a href="list.php">List</a></li>
+      <li><a href="preferences.php">Preferences</a></li>
     </ul>
   </div>
 </nav>
