@@ -52,18 +52,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $state_name = $input_state_name;
     }
 
-    $input_state_name = trim($_POST["keywords"]);
+    $input_keyword = trim($_POST["keywords"]);
     if(empty($input_state_name)){
-        $state_name_err = "Please enter the keywords";     
+        $keyword_err = "Please enter the keywords";     
     } else{
-        $state_name = $input_state_name;
+        $keyword = $input_keyword;
     }
 
-    $input_state_name = trim($_POST["image"]);
-    if(empty($input_state_name)){
-        $state_name_err = "Please enter a image";     
+    $input_image = trim($_POST["image"]);
+    if(empty($input_image)){
+        $image = "Please enter a image";     
     } else{
-        $state_name = $input_state_name;
+        $image = $input_image;
     }
 
    
@@ -149,7 +149,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                      
                         
                         <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-default">Cancel</a>
+                        <a href="list.php" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
             </div>        
