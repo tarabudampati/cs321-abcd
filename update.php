@@ -6,7 +6,7 @@ require_once "config.php";
 $name = $description = $type = $did_you_know =  $state_name = $keywords = $image = "";
 $name_err = $description_err = $type_err = $did_you_know_err = $state_name_err = $keyword_err = $image_err = "";
  
-// Processing form data when form is submitted
+// Processing form data when form is submitted h
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
     $input_name = trim($_POST["name"]);
