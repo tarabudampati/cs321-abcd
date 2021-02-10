@@ -8,7 +8,7 @@ define('DB_NAME', 'dances_db');
  
 /* Attempt to connect to MySQL database */
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
- 
+ //False comment
 // Check connection
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
