@@ -3,8 +3,8 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$name = $address = $salary = "";
-$name_err = $address_err = $salary_err = "";
+$name = $description = $type = $did_you_know =  $state_name =   "";
+$name_err = $description_err = $type_err = $did_you_know_err = $state_name_err =  "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -18,28 +18,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name = $input_name;
     }
     
-    // Validate address
-    $input_address = trim($_POST["address"]);
-    if(empty($input_address)){
-        $address_err = "Please enter an address.";     
+    // Validate description
+    $input_description = trim($_POST["description"]);
+    if(empty($input_description)){
+        $description_err = "Please enter a description.";
+    } elseif(!filter_var($input_description, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $description_err = "Please enter a valid description.";
     } else{
-        $address = $input_address;
+        $description = $input_description;
     }
     
-    // Validate salary
-    $input_salary = trim($_POST["salary"]);
-    if(empty($input_salary)){
-        $salary_err = "Please enter the salary amount.";     
-    } elseif(!ctype_digit($input_salary)){
-        $salary_err = "Please enter a positive integer value.";
+    // Validate type
+    $input_type = trim($_POST["type"]);
+    if(empty($input_type)){
+        $type_err = "Please enter a type.";     
     } else{
-        $salary = $input_salary;
+        $type = $input_type;
     }
- 
+
+
+    //Validate did you know
+    $input_did_you_know = trim($_POST["did_you_know"]);
+    if(empty($input_did_you_know)){
+        $did_you_know_err = "Please enter a did you know.";     
+    } else{
+        $did_you_know = $input_did_you_know;
+    }
+
+    $input_state_name = trim($_POST["state_name"]);
+    if(empty($input_state_name)){
+        $state_name_err = "Please enter a state name";     
+    } else{
+        $state_name = $input_state_name;
+    }
+
+   
+
     // Check input errors before inserting in database
-    if(empty($name_err) && empty($address_err) && empty($salary_err)){
+    if(empty($name_err) && empty($description_err) && empty($type_err) && empty($did_you_know_err) ){
         // Prepare an insert statement
-        $sql = "INSERT INTO employees (name, address, salary) VALUES ('$name', '$address', '$salary')";
+        $sql = "INSERT INTO dances (name, description, type, did_you_know, state_name ) VALUES ('$name', '$description', '$type' , '$did_you_know' , '$state_name' )";
         // Executing and getting results
         $mysqli_result = mysqli_query($link, $sql); 
         // Checking results
@@ -82,23 +100,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="page-header">
                         <h2>Create Dance</h2>
                     </div>
-                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <p>Please fill this form and submit to add a dance to the database.</p>
                     <form action="create.php" method="post">
                         <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
-                            <label>Name</label>
+                            <label>Dance</label>
                             <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
                             <span class="help-block"><?php echo $name_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($address_err)) ? 'has-error' : ''; ?>">
-                            <label>Address</label>
-                            <textarea name="address" class="form-control"><?php echo $address; ?></textarea>
-                            <span class="help-block"><?php echo $address_err;?></span>
+                        <div class="form-group <?php echo (!empty($description_err)) ? 'has-error' : ''; ?>">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control"><?php echo $description; ?></textarea>
+                            <span class="help-block"><?php echo $description_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($salary_err)) ? 'has-error' : ''; ?>">
-                            <label>Salary</label>
-                            <input type="text" name="salary" class="form-control" value="<?php echo $salary; ?>">
-                            <span class="help-block"><?php echo $salary_err;?></span>
+                        <div class="form-group <?php echo (!empty($type_err)) ? 'has-error' : ''; ?>">
+                            <label>Dance Type</label>
+                            <textarea name="type" class="form-control"><?php echo $type; ?></textarea>
+                            <span class="help-block"><?php echo $type_err;?></span>
+                        </div>                       
+                        <div class="form-group <?php echo (!empty($did_you_know_err)) ? 'has-error' : ''; ?>">
+                            <label>Did you know?</label>
+                            <textarea name="did_you_know" class="form-control"><?php echo $did_you_know; ?></textarea>
+                            <span class="help-block"><?php echo $did_you_know_err;?></span>
                         </div>
+                        <div class="form-group <?php echo (!empty($did_you_know_err)) ? 'has-error' : ''; ?>">
+                            <label>State Name</label>
+                            <textarea name="state_name" class="form-control"><?php echo $state_name; ?></textarea>
+                            <span class="help-block"><?php echo $state_name_err;?></span>
+                        </div>
+                     
+                        
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="index.php" class="btn btn-default">Cancel</a>
                     </form>
