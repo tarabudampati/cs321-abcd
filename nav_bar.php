@@ -6,19 +6,15 @@ require_once "config.php";
 <html>
 <header class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="#" class="navbar-brand"></a>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></button>
-        </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="index">My Favorite</a></li>                    
-                <li><a href = "#Summary">Summary</a></li>
+                <li><a href = "./about.php">About</a></li>
+                <li><a href="./my_favorite.php">My Favorite</a></li>                    
+                <li><a href = "./summary.php">Summary</a></li>
                 <li><a href = "./list.php">List</a></li>
-                <li><a href = "#Preferences">Preferences</a></li>
-                <li><a href = "#About">About</a></li>
-                <li><a href = "#Help">Help</a></li>
-                <li><a href = "#Login">Login</a></li>
+                <li><a href = "./preferences.php">Preferences</a></li>
+                <li><a href = "./help.php">Help</a></li>
+                <li><a href = "./login.php">Login</a></li>
             </ul>
         </div>
     </div>
@@ -27,30 +23,13 @@ require_once "config.php";
 <style type="text/css">
 li{
   list-style-type: none;
-  margin: 2vw 0;
-  
-  font-size: 3vh;
+  font-size: 2vh;
 }
 
 a{
-  text-decoration: none;
+  text-decoration: bold;
   color: black;
   font-family: monospace;
-
-  padding: 2vw;
-}
-
-nav{
-  width: 100vw;
-  background-color: white;
-}
-
-ul{
-float: right;
-  margin: 0;
-  padding: 0;
-  
-  display: flex;  
 }
 
 body{
