@@ -50,31 +50,6 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
-<div class="jumbotron">
-  <h1><center>ABCD Project</center></h1>      
-</div>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="#"> Home </a></li>
-      <li><a href="#"> List </a></li>
-      <li><a href="#"> Read </a></li>
-      <li><a href="#"> Create</a></li>
-      <li><a href="#">Update</a></li>
-    </ul>
-        </div>
-</nav>
-</body>
-<head>
 <style>
 .form-group {
   border: 2px solid black;
@@ -86,19 +61,19 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 .form-group-2 {
   border: 1px solid black;
 }
-</style>
-    <meta charset="UTF-8">
-    <title>View Record</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
+ .wrapper{
+            width: 1000px;
             margin: 0 auto;
         }
-    </style>
+</style>
 </head>
 <body>
     <div class="wrapper">
+    <?php
+               // Include header and nav bar files
+               require_once "header.php";
+               require_once "nav_bar.php";
+            ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">

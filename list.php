@@ -8,14 +8,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
     <style type="text/css">
         .wrapper{
-            width: 650px;
+            width: 1000px;
             margin: 0 auto;
         }
         .page-header h2{
             margin-top: 0;
         }
         table tr td:last-child a{
-            margin-right: 15px;
+            margin-right: 25px;
         }
     </style>
     <script type="text/javascript">
@@ -25,8 +25,13 @@
     </script>
 </head>
 <body>
-    <div class="wrapper">
+<div class="wrapper">
         <div class="container-fluid">
+            <?php
+               // Include header and nav bar files
+               require_once "header.php";
+               require_once "nav_bar.php";
+            ?>
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
@@ -48,10 +53,10 @@
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
-                                        echo "<th>Dance Name</th>";
-                                        echo "<th>Dance Type</th>";
+                                        echo "<th nowrap>Dance Name</th>";
+                                        echo "<th nowrap>Dance Type</th>";
                                         echo "<th>Description</th>";
-                                        echo "<th>Did You Know?</th>";
+                                        echo "<th nowrap>Did You Know?</th>";
                                         echo "<th>State</th>";
                                         echo "<th>Keywords</th>";
                                         echo "<th>Image</th>";
@@ -72,9 +77,9 @@
                                         echo "<td>" . $row['image_url'] . "</td>";
                                         echo "<td>";
                                         // Adding links for Read, Update and Delete records. Images are coming from bootstrap CSS
-                                            echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                                            echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                            echo "<a href='delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                                        echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                        echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                        echo "<a href='delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                         echo "</td>";
                                     echo "</tr>";
                                 }
