@@ -71,7 +71,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database h
     if(empty($name_err) && empty($description_err) && empty($type_err) && empty($did_you_know_err) ){
         // Prepare an insert statement
-        $sql = "INSERT INTO dances (name, description, type, did_you_know, state_name ) VALUES ('$name', '$description', '$type' , '$did_you_know' , '$state_name' )";
+        $sql = "INSERT INTO dances (name, description, type, did_you_know, state_name ) VALUES ('$name', '$description', '$type' , '$did_you_know' , '$state_name' , key)";
+        echo $sql;
         // Executing and getting results <!-- h -->
         $mysqli_result = mysqli_query($link, $sql); 
         // Checking results
