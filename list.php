@@ -43,7 +43,7 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM dances";
+                    $sql = "SELECT * FROM dances where status!='proposed'";
                      // Executing and getting results
                     $mysqli_result = mysqli_query($link, $sql); 
                     // Checking results

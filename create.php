@@ -122,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // Prepare an insert statement
-            $sql = "INSERT INTO dances (name, description, type, did_you_know, state_name, key_words, image_url ) VALUES ('$name', '$description', '$type' , '$did_you_know' , '$state_name' , '$key_words', '$imageName')";
+            $sql = "INSERT INTO dances (name, description, type, did_you_know, state_name, key_words, image_url, status) VALUES ('$name', '$description', '$type' , '$did_you_know' , '$state_name' , '$key_words', '$imageName', 'proposed')";
             // Executing and getting results
 
             $mysqli_result = mysqli_query($link, $sql); 
