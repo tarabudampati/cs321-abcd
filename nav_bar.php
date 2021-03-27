@@ -14,7 +14,7 @@ require_once "config.php";
                 <li><a href = "./list.php">List</a></li>
                 <li><a href = "./preferences.php">Preferences</a></li>
                 <li><a href = "./help.php">Help</a></li>
-                <li><a href = "./login.php">Login</a></li>
+               <!-- <li><a href = "./login.php">Login</a></li>-->
             </ul>
         </div>
     </div>

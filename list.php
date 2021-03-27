@@ -74,7 +74,7 @@
                                         echo "<td>" . $row['did_you_know'] . "</td>";
                                         echo "<td>" . $row['state_name'] . "</td>";
                                         echo "<td>" . $row['key_words'] . "</td>";
-                                        echo "<td><img src='" . "images/dance_images/" .$row["image_url"]. "' alt='".$row['image_url']."'></td>";
+                                        echo "<td><img width=150 height=150 src='" . "images/dance_images/" .$row["image_url"]. "' alt='".$row['image_url']."'></td>";
                                         echo "<td>";
                                         // Adding links for Read, Update and Delete records. Images are coming from bootstrap CSS
                                         echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
