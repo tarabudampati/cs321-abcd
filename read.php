@@ -75,27 +75,17 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 </nav>
 </body>
 <head>
-<style>
-.form-group {
-  border: 2px solid black;
-  font-family: "Monaco", "Lucinda Console", monospace;
-}
-.form-group {
-  text-align: center;
-}
-.form-group-2 {
-  border: 1px solid black;
+<style type = "text/css">
+label{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(224, 172, 9);
+    font-size: 25px;
 }
 </style>
     <meta charset="UTF-8">
     <title>View Record</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
-            margin: 0 auto;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="wrapper">
@@ -104,6 +94,12 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 <div class="col-md-12">
                     <div class="page-header">
                         <h1><center>View Record</center></h1>
+                    </div>
+                    <div class="form-group">
+                    <div class = "form-group-2">
+                        <label>Image URL</label>
+                    </div>
+                        <p class="form-control-static"><?php echo $row['image_url']; ?></p>
                     </div>
                     <div class="form-group">
                     <div class = "form-group-2">
@@ -140,12 +136,6 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <label>State Name</label>
                         </div>
                         <p class="form-control-static"><?php echo $row['state_name']; ?></p>
-                    </div>
-                    <div class="form-group">
-                    <div class = "form-group-2">
-                        <label>Image URL</label>
-                    </div>
-                        <p class="form-control-static"><?php echo $row['image_url']; ?></p>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Back</a></p>
                 </div>
