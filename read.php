@@ -82,6 +82,12 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                     </div>
                     <div class="form-group">
                     <div class = "form-group-2">
+                        <label>Image URL</label>
+                    </div>
+                        <p class="form-control-static"><?php echo $row['image_url']; ?></p>
+                    </div>
+                    <div class="form-group">
+                    <div class = "form-group-2">
                         <label>ID</label>
                     </div>
                         <p class="form-control-static"><?php echo $row['id']; ?></p>
@@ -116,13 +122,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         </div>
                         <p class="form-control-static"><?php echo $row['state_name']; ?></p>
                     </div>
-                    <div class="form-group">
-                    <div class = "form-group-2">
-                        <label>Image URL</label>
-                    </div>
-                        <p class="form-control-static"><?php echo $row['image_url']; ?></p>
-                    </div>
-                    <p><a href="list.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="index.php" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>
