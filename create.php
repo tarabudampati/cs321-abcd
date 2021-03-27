@@ -210,7 +210,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             <label>Dance</label>
 
-                            <input type="text" name="name" class="form-control" required value="<?php echo $name; ?>">
+                            <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
 
                             <span class="help-block"><?php echo $name_err;?></span>
 
@@ -270,7 +270,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             <label>Image</label>
 
-                         <input style=width:400px type="file" onchange="loadFile(event)" name="fileToUpload" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" required title="Please enter an image file" value="<?php echo $fileToUpload; ?>"></input><br>
+                         <input style=width:400px type="file" onchange="loadFile(event)" name="fileToUpload" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" title="Please enter an image file" value="<?php echo $fileToUpload; ?>"></input><br>
                             <img id="output" width="200" />
                          </div>
                          
