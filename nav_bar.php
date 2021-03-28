@@ -1,9 +1,6 @@
 <?php
 require_once "config.php";
 ?>
-
-<!DOCTYPE html>
-<html>
 <header class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-collapse collapse">
@@ -47,4 +44,3 @@ a:hover{
 
 }
 </style>
-</html>
