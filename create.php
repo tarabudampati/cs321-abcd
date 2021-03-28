@@ -183,11 +183,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <style type="text/css">
 
         .wrapper{
-
-            width: 500px;
-
+            width: 1000px;
             margin: 0 auto;
-
         }
 
     </style>
@@ -199,15 +196,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="wrapper">
 
         <div class="container-fluid">
-
+        <?php
+               // Include header and nav bar files
+               require_once "header.php";
+               require_once "nav_bar.php";
+            ?>
             <div class="row">
 
                 <div class="col-md-12">
 
                     <div class="page-header">
-
-                        <h2>Create Record</h2>
-
+                        <h2>Create Dance</h2>
                     </div>
 
                     <p>Please fill this form and submit to add employee record to the database.</p>
