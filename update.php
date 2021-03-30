@@ -1,4 +1,5 @@
 <?php
+ print_r($_POST);
 // Include config file
 require_once "config.php";
  
@@ -35,8 +36,6 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     $input_type = trim($_POST["type"]);
     if(empty($input_type)){
         $type_err = "Please enter the type.";     
-    } elseif(!ctype_digit($input_type)){
-        $type_err = "Please enter a type.";
     } else{
         $type = $input_type;
     }
@@ -45,8 +44,6 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     $input_did_you_know = trim($_POST["did_you_know"]);
     if(empty($input_did_you_know)){
         $did_you_know_err = "Please enter a did you know";     
-    } elseif(!ctype_digit($input_did_you_know)){
-        $did_you_know_err = "Please enter a did you know";
     } else{
         $did_you_know = $input_did_you_know;
     }
@@ -55,9 +52,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     $input_state_name = trim($_POST["state_name"]);
     if(empty($input_state_name)){
         $state_name_err = "Please enter the state name";     
-    } elseif(!ctype_digit($input_state_name)){
-        $state_name_err = "Please enter the state name";
-    } else{
+    }else{
         $state_name = $input_state_name;
     }
 
@@ -65,9 +60,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     $input_key_words = trim($_POST["key_words"]);
     if(empty($input_key_words)){
         $key_words_err = "Please enter the key words.";     
-    } elseif(!ctype_digit($input_key_words)){
-        $key_words_err = "Please enter the key words.";
-    } else{
+    }else{
         $key_words = $input_key_words;
     }
 
@@ -76,22 +69,21 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     $input_image = trim($_POST["image"]);
     if(empty($input_image)){
         $image_err = "Please enter the image.";     
-    } elseif(!ctype_digit($input_image)){
-        $image_err = "Please enter the image";
-    } else{
+    }else{
         $image = $input_image;
     }
-    
+
     // Check input errors before inserting in database
     if(empty($name_err) && empty($description_err) && empty($type_err) && empty($did_you_know_err) && empty($state_name_err) && empty($key_words_err) && empty($image_err)){
         // Prepare an update statement
-        $sql = "UPDATE employees SET name='$name', description='$description', type='$type', did_you_know ='$did_you_know', statename='$state_name', keywords='$key_words', image='$image' WHERE id='$id'";
+        $sql = "UPDATE dances SET name='$name', description='$description', type='$type', did_you_know ='$did_you_know', state_name= '$state_name', key_words='$key_words', image_url='$image' WHERE id='$id'";
         // Executing and getting results
+        echo $sql;
         $mysqli_result = mysqli_query($link, $sql); 
         // Checking results
         if($mysqli_result){
                 // Records updated successfully. Redirect to landing page
-                header("location: index.php");
+                header("location: list.php");
                 exit();
         } else{
             echo "Something went wrong. Please try again later.";
@@ -107,7 +99,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id =  trim($_GET["id"]);
         
         // Prepare a select statement
-        $sql = "SELECT * FROM employees WHERE id = '$id'";
+        $sql = "SELECT * FROM dances WHERE id = '$id'";
         // Executing and getting results
         $mysqli_result = mysqli_query($link, $sql); 
         // Checking results
@@ -122,7 +114,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                 $description = $row["Description"];
                 $type = $row["Dance Type"];
                 $did_you_know = $row["Did You Know?"];
-                $state_name = $row["State"];
+                $state_name = $row["State Name"];
                 $key_words = $row["Keywords"];
                 $image = $row["Image"];
 
@@ -189,10 +181,10 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <input type="text" name="did_you_know" class="form-control" value="<?php echo $did_you_know; ?>">
                             <span class="help-block"><?php echo $did_you_know_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($state_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($state_name_err)) ? 'has-error' : ''; ?>">
                             <label>State Name</label>
-                            <textarea name="state_name" class="form-control"><?php echo $state; ?></textarea>
-                            <span class="help-block"><?php echo $state_err;?></span>
+                            <textarea name="state_name" class="form-control"><?php echo $state_name; ?></textarea>
+                            <span class="help-block"><?php echo $state_name_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($key_words_err)) ? 'has-error' : ''; ?>">
                             <label>Key Words</label>
