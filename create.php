@@ -6,9 +6,9 @@ require_once "config.php";
 
 // Define variables and initialize with empty values
 
-$name = $description = $type = $did_you_know =  $state_name = $key_words =  "";
+$name = $description = $type = $did_you_know =  $state_name = $key_words = $image = "";
 
-$name_err = $description_err = $type_err = $did_you_know_err = $state_name_err = $key_words_err = "";
+$name_err = $description_err = $type_err = $did_you_know_err = $state_name_err = $key_words_err = $image_err "";
 
 // Processing form data when form is submitted
 
