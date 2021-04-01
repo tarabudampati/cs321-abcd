@@ -1,10 +1,13 @@
 <?php
-// Include config file - updated by Lavanya
+ print_r($_POST);
+// Include config file
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$name = $address = $salary = "";
-$name_err = $address_err = $salary_err = "";
+$name = $description = $type = $did_you_know =  $state_name = $key_words = $image = "";
+
+$name_err = $description_err = $type_err = $did_you_know_err = $state_name_err = $key_words_err = $image_err = "";
+
  
 // Processing form data when form is submitted
 if(isset($_POST["id"]) && !empty($_POST["id"])){
@@ -21,34 +24,66 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $name = $input_name;
     }
     
-    // Validate address address
-    $input_address = trim($_POST["address"]);
-    if(empty($input_address)){
-        $address_err = "Please enter an address.";     
+    // Validate description
+    $input_description = trim($_POST["description"]);
+    if(empty($input_description)){
+        $description_err = "Please enter a description.";     
     } else{
-        $address = $input_address;
+        $description = $input_description;
     }
     
-    // Validate salary
-    $input_salary = trim($_POST["salary"]);
-    if(empty($input_salary)){
-        $salary_err = "Please enter the salary amount.";     
-    } elseif(!ctype_digit($input_salary)){
-        $salary_err = "Please enter a positive integer value.";
+    // Validate type
+    $input_type = trim($_POST["type"]);
+    if(empty($input_type)){
+        $type_err = "Please enter the type.";     
     } else{
-        $salary = $input_salary;
+        $type = $input_type;
     }
-    
+
+    // Validate did you know
+    $input_did_you_know = trim($_POST["did_you_know"]);
+    if(empty($input_did_you_know)){
+        $did_you_know_err = "Please enter a did you know";     
+    } else{
+        $did_you_know = $input_did_you_know;
+    }
+
+    // Validate state name
+    $input_state_name = trim($_POST["state_name"]);
+    if(empty($input_state_name)){
+        $state_name_err = "Please enter the state name";     
+    }else{
+        $state_name = $input_state_name;
+    }
+
+    // Validate key words
+    $input_key_words = trim($_POST["key_words"]);
+    if(empty($input_key_words)){
+        $key_words_err = "Please enter the key words.";     
+    }else{
+        $key_words = $input_key_words;
+    }
+
+
+    // Validate image
+    $input_image = trim($_POST["image"]);
+    if(empty($input_image)){
+        $image_err = "Please enter the image.";     
+    }else{
+        $image = $input_image;
+    }
+
     // Check input errors before inserting in database
-    if(empty($name_err) && empty($address_err) && empty($salary_err)){
+    if(empty($name_err) && empty($description_err) && empty($type_err) && empty($did_you_know_err) && empty($state_name_err) && empty($key_words_err) && empty($image_err)){
         // Prepare an update statement
-        $sql = "UPDATE employees SET name='$name', address='$address', salary='$salary' WHERE id='$id'";
+        $sql = "UPDATE dances SET name='$name', description='$description', type='$type', did_you_know ='$did_you_know', state_name= '$state_name', key_words='$key_words', image_url='$image' WHERE id='$id'";
         // Executing and getting results
+        echo $sql;
         $mysqli_result = mysqli_query($link, $sql); 
         // Checking results
         if($mysqli_result){
                 // Records updated successfully. Redirect to landing page
-                header("location: index.php");
+                header("location: list.php");
                 exit();
         } else{
             echo "Something went wrong. Please try again later.";
@@ -64,7 +99,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id =  trim($_GET["id"]);
         
         // Prepare a select statement
-        $sql = "SELECT * FROM employees WHERE id = '$id'";
+        $sql = "SELECT * FROM dances WHERE id = '$id'";
         // Executing and getting results
         $mysqli_result = mysqli_query($link, $sql); 
         // Checking results
@@ -75,9 +110,14 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                 $row = mysqli_fetch_array($mysqli_result, MYSQLI_ASSOC);
                     
                 // Retrieve individual field value
-                $name = $row["name"];
-                $address = $row["address"];
-                $salary = $row["salary"];
+                $name = $row["Dance Name"];
+                $description = $row["Description"];
+                $type = $row["Dance Type"];
+                $did_you_know = $row["Did You Know?"];
+                $state_name = $row["State Name"];
+                $key_words = $row["Keywords"];
+                $image = $row["Image"];
+
             } else{
                 // URL doesn't contain valid id. Redirect to error page
                 header("location: error.php");
@@ -126,15 +166,35 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
                             <span class="help-block"><?php echo $name_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($address_err)) ? 'has-error' : ''; ?>">
-                            <label>Address</label>
-                            <textarea name="address" class="form-control"><?php echo $address; ?></textarea>
-                            <span class="help-block"><?php echo $address_err;?></span>
+                        <div class="form-group <?php echo (!empty($description_err)) ? 'has-error' : ''; ?>">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control"><?php echo $description; ?></textarea>
+                            <span class="help-block"><?php echo $description_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($salary_err)) ? 'has-error' : ''; ?>">
-                            <label>Salary</label>
-                            <input type="text" name="salary" class="form-control" value="<?php echo $salary; ?>">
-                            <span class="help-block"><?php echo $salary_err;?></span>
+                        <div class="form-group <?php echo (!empty($type_err)) ? 'has-error' : ''; ?>">
+                            <label>Dance Type</label>
+                            <textarea name="type" class="form-control"><?php echo $type; ?></textarea>
+                            <span class="help-block"><?php echo $type_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($did_you_know_err)) ? 'has-error' : ''; ?>">
+                            <label>Did You Know?</label>
+                            <input type="text" name="did_you_know" class="form-control" value="<?php echo $did_you_know; ?>">
+                            <span class="help-block"><?php echo $did_you_know_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($state_name_err)) ? 'has-error' : ''; ?>">
+                            <label>State Name</label>
+                            <textarea name="state_name" class="form-control"><?php echo $state_name; ?></textarea>
+                            <span class="help-block"><?php echo $state_name_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($key_words_err)) ? 'has-error' : ''; ?>">
+                            <label>Key Words</label>
+                            <textarea name="key_words" class="form-control"><?php echo $key_words; ?></textarea>
+                            <span class="help-block"><?php echo $key_words_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($image_err)) ? 'has-error' : ''; ?>">
+                            <label>Image</label>
+                            <textarea name="image" class="form-control"><?php echo $image; ?></textarea>
+                            <span class="help-block"><?php echo $image_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <input type="submit" class="btn btn-primary" value="Submit">

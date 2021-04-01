@@ -43,67 +43,52 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="jumbotron">
-  <h1><center>ABCD Project</center></h1>      
-</div>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="#"> Home </a></li>
-      <li><a href="#"> List </a></li>
-      <li><a href="#"> Read </a></li>
-      <li><a href="#"> Create</a></li>
-      <li><a href="#">Update</a></li>
-    </ul>
-        </div>
-</nav>
-</body>
-<head>
-<style>
-.form-group {
-  border: 2px solid black;
-  font-family: "Monaco", "Lucinda Console", monospace;
+    <meta charset="UTF-8">
+    <title>Project ABCD</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <style type="text/css">
+label{
+    font-family: Times New Roman;
+    color: rgb(224, 172, 9);
+    font-size: 25px;
 }
-.form-group {
-  text-align: center;
-}
-.form-group-2 {
-  border: 1px solid black;
-}
+ .wrapper{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .page-header h2{
+            margin-top: 0;
+        }
+        table tr td:last-child a{
+            margin-right: 25px;
+        }
 </style>
     <meta charset="UTF-8">
     <title>View Record</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
-            margin: 0 auto;
-        }
-    </style>
+    
 </head>
-<body>
-    <div class="wrapper">
+<div class="wrapper">
         <div class="container-fluid">
+            <?php
+               // Include header and nav bar files
+               require_once "header.php";
+               require_once "nav_bar.php";
+            ?>
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
                         <h1><center>View Record</center></h1>
+                    </div>
+                    <div class="form-group">
+                    <div class = "form-group-2">
+                        <label>Image</label>
+                    </div>
+                        <p class="form-control-static">
+                        <img width=150 height=150 src="images/dance_images/<?php echo $row['image_url']; ?>" alt="<?php echo $row['image_url']; ?>"></td>
+                        </p>
                     </div>
                     <div class="form-group">
                     <div class = "form-group-2">
@@ -141,13 +126,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         </div>
                         <p class="form-control-static"><?php echo $row['state_name']; ?></p>
                     </div>
-                    <div class="form-group">
-                    <div class = "form-group-2">
-                        <label>Image URL</label>
-                    </div>
-                        <p class="form-control-static"><?php echo $row['image_url']; ?></p>
-                    </div>
-                    <p><a href="index.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="list.php" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>
