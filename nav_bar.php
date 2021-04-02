@@ -1,9 +1,6 @@
 <?php
 require_once "config.php";
 ?>
-
-<!DOCTYPE html>
-<html>
 <header class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-collapse collapse">
@@ -14,7 +11,7 @@ require_once "config.php";
                 <li><a href = "./list.php">List</a></li>
                 <li><a href = "./preferences.php">Preferences</a></li>
                 <li><a href = "./help.php">Help</a></li>
-                <li><a href = "./login.php">Login</a></li>
+               <!-- <li><a href = "./login.php">Login</a></li>-->
             </ul>
         </div>
     </div>
@@ -47,4 +44,3 @@ a:hover{
 
 }
 </style>
-</html>
