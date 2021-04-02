@@ -141,10 +141,12 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 <head>
     <meta charset="UTF-8">
     <title>Update Record</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
-            width: 500px;
+            width: 1000px;
             margin: 0 auto;
         }
     </style>
@@ -152,6 +154,11 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 <body>
     <div class="wrapper">
         <div class="container-fluid">
+        <?php
+               // Include header and nav bar files
+               require_once "header.php";
+               require_once "nav_bar.php";
+            ?>
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
