@@ -1,5 +1,4 @@
 <?php
- print_r($_POST);
 // Include config file
 require_once "config.php";
  
@@ -108,15 +107,14 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                 /* Fetch result row as an associative array. Since the result set
                 contains only one row, we don't need to use while loop */
                 $row = mysqli_fetch_array($mysqli_result, MYSQLI_ASSOC);
-                    
                 // Retrieve individual field value
-                $name = $row["Dance Name"];
-                $description = $row["Description"];
-                $type = $row["Dance Type"];
-                $did_you_know = $row["Did You Know?"];
-                $state_name = $row["State Name"];
-                $key_words = $row["Keywords"];
-                $image = $row["Image"];
+                $name = $row["name"];
+                $description = $row["description"];
+                $type = $row["type"];
+                $did_you_know = $row["did_you_know"];
+                $state_name = $row["state_name"];
+                $key_words = $row["key_words"];
+                $image = $row["image_url"];
 
             } else{
                 // URL doesn't contain valid id. Redirect to error page
