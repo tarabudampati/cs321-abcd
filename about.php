@@ -127,7 +127,7 @@
       "",
       "Tanuj Sagar",
       "images/about_images/babu.jpg",
-      "N/A"
+      "Tanuj is an 8th grader at Lake Middle School in Woodbury Minnesota. He is part of the Eastridge Debate team and the Eastridge baseball team. Tanuj likes to play guitar and the violin. He goes to SILC to attend CS320 (PHP). "
       );
 
       var tara = new Student(
