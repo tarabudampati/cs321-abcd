@@ -74,7 +74,7 @@ setcookie($cookie_favdance,$cookie_fvalue,time()+(60 * 60),"/");
                require_once "header.php";
                require_once "nav_bar.php";
             ?>
-            <h3 id = "title">Update Preferences</h3>
+            <h4 id = "title">Update Preferences</h4>
         <form action="preferences.php" method="post">
       <table style="width:600px">
       <tbody>
@@ -120,10 +120,9 @@ setcookie($cookie_favdance,$cookie_fvalue,time()+(60 * 60),"/");
         </div>
         </body>
 <style type = "text/css">
-h3{
+h4{
     text-align: center;
     color: rgb(224, 172, 9);
-    font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
 }
 td {
