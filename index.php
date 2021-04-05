@@ -16,10 +16,13 @@ require 'config.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 </head>
 <style>
+     .wrapper{
+            width: 1000px;
+            margin: 0 auto;
+        }
+
     .image {
-        /* width: 125px;
-        height: 150px; */
-       /* width: 250px;
+        width: 250px;
         height: 350px;*/
         padding: 8px 8px 8px 8px;
         transition: transform .2s;
@@ -69,7 +72,8 @@ require 'config.php';
 </style>
 
 <body>
-
+<div class="wrapper">
+        <div class="container-fluid">
 
     <?php
     if (isset($_GET['preferencesUpdated'])) {
@@ -195,54 +199,7 @@ echo ' <h2 id="directions">Select a dance to know more about it</h2><br>';
         }
     echo "</table>";
     ?>
-
-<!--Data Table -->
-<!--<script type="text/javascript" charset="utf8"
-        src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script> -->
-        <script type="text/javascript" charset="utf8"
-        src="https://code.jquery.com/jquery-3.3.1.js"></script> 
-<script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script> 
-<script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script> 
-<script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-
-        <script type="text/javascript" language="javascript">
-    $(document).ready( function () {
-        
-        $('#ceremoniesTable').DataTable( {
-            dom: 'lfrtBip',
-            buttons: [
-                'copy', 'excel', 'csv', 'pdf'
-            ] }
-        );
-
-        $('#ceremoniesTable thead tr').clone(true).appendTo( '#ceremoniesTable thead' );
-        $('#ceremoniesTable thead tr:eq(1) th').each( function (i) {
-            var title = $(this).text();
-            //$(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-    
-            $( 'input', this ).on( 'keyup change', function () {
-            /*    if ( table.column(i).search() !== this.value ) {
-                    table
-                        .column(i)
-                        .search( this.value )
-                        .draw();
-                } */
-            } );
-        } ); 
-    
-        var table = $('#ceremoniesTable').DataTable( {
-            orderCellsTop: true,
-            fixedHeader: true,
-            retrieve: true 
-        } );
-        
-    } );
-
-
+    </div>
+</div>
 </body>
-
 </html>

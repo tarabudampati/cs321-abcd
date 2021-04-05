@@ -1,5 +1,4 @@
 <?php
- print_r($_POST);
 // Include config file
 require_once "config.php";
  
@@ -108,15 +107,14 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                 /* Fetch result row as an associative array. Since the result set
                 contains only one row, we don't need to use while loop */
                 $row = mysqli_fetch_array($mysqli_result, MYSQLI_ASSOC);
-                    
                 // Retrieve individual field value
-                $name = $row["Dance Name"];
-                $description = $row["Description"];
-                $type = $row["Dance Type"];
-                $did_you_know = $row["Did You Know?"];
-                $state_name = $row["State Name"];
-                $key_words = $row["Keywords"];
-                $image = $row["Image"];
+                $name = $row["name"];
+                $description = $row["description"];
+                $type = $row["type"];
+                $did_you_know = $row["did_you_know"];
+                $state_name = $row["state_name"];
+                $key_words = $row["key_words"];
+                $image = $row["image_url"];
 
             } else{
                 // URL doesn't contain valid id. Redirect to error page
@@ -143,10 +141,12 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 <head>
     <meta charset="UTF-8">
     <title>Update Record</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
-            width: 500px;
+            width: 1000px;
             margin: 0 auto;
         }
     </style>
@@ -154,6 +154,11 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 <body>
     <div class="wrapper">
         <div class="container-fluid">
+        <?php
+               // Include header and nav bar files
+               require_once "header.php";
+               require_once "nav_bar.php";
+            ?>
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
