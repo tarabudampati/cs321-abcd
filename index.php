@@ -57,6 +57,7 @@ require 'config.php';
     #title {
         color: black;
         text-align: center;
+        font-size: 20px;
     }
 
     a:visited,
@@ -133,6 +134,7 @@ require 'config.php';
 
     $name_sql = "SELECT `name` FROM `dances`";
     $pic_sql = "SELECT `image_url` FROM `dances`";
+    $id_sql =  "SELECT `id` FROM `dances`";
     
     $Sort_string = @$_GET['option'];
 
@@ -141,11 +143,12 @@ require 'config.php';
         }
     $name_sql = $name_sql. " ORDER BY " .$Sort_string. " ASC";
     $pic_sql = $pic_sql. " ORDER BY " .$Sort_string. " ASC";
-   
+    $id_sql = $id_sql. " ORDER BY " .$Sort_string. " ASC";
 
 
     $name_results = mysqli_query($link, $name_sql);
     $pic_results = mysqli_query($link, $pic_sql);
+    $id_results = mysqli_query($link, $id_sql);
 
     if (mysqli_num_rows($name_results) > 0) {
         while ($row = mysqli_fetch_assoc($name_results)) {
@@ -159,9 +162,15 @@ require 'config.php';
         }
     }
 
-
+    if (mysqli_num_rows($id_results) > 0) {
+        while ($row = mysqli_fetch_assoc($id_results)) {
+            $dance_ids[] = $row;
+        }
+    }
    
-
+if ($dances_count > count($dance_ids)) {
+    $dances_count = count($dance_ids);
+}
 
     //=============================================================================
     // Step 3: Now, display the dances in loop 
@@ -183,9 +192,10 @@ echo ' <h2 id="directions">Select a dance to know more about it</h2><br>';
                     $dance = $dance_names[$a]['name'];
                     $pic = $dance_pics[$a]['image_url'];
                     $pic = "images/dance_images/" . $pic;
+                    $id = $dance_ids[$a]['id'];
                     echo "
                     <td>
-                        <a href = 'display_the_dance.php?name=$dance' title = '$dance'>
+                        <a href = 'read.php?id=$id' title = '$dance'>
                         <img src='$pic' width='$image_width' height='$image_height'>
                             <div id = 'title'>$dance </div>
                             
