@@ -85,15 +85,7 @@
     }
 
 
-
-      var adi = new Student(
-      "",
-      "Adarsh Nayar",
-      "images/about_images/sample_image.png",
-      "N/A"
-      );
-
-      var anand = new Student(
+    var anand = new Student(
       "",
       "Anand Seemakurty",
       "images/about_images/AnuradhaKumble.jpg",
@@ -139,8 +131,7 @@
       );
     
     function printoutStudents() {
-        return adi.toString() + 
-               anand.toString() +
+        return anand.toString() +
                lakshika.toString() +
                neel.toString() + 
                sreeja.toString() +
