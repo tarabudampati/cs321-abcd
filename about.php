@@ -104,7 +104,8 @@
       "",
       "Neel Shekar",
       "images/about_images/siva.jpg",
-      "N/A"
+      "Neel is an 8th grader attending Lake Middle School in Woodbury. He likes playing the guitar, as well as the trombone. He participates in the CS320 SILC class in which he learns PHP."
+
       );
  
       var sreeja = new Student(
