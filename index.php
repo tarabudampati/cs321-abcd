@@ -16,10 +16,13 @@ require 'config.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 </head>
 <style>
+     .wrapper{
+            width: 1000px;
+            margin: 0 auto;
+        }
+
     .image {
-        /* width: 125px;
-        height: 150px; */
-       /* width: 250px;
+        width: 250px;
         height: 350px;*/
         padding: 8px 8px 8px 8px;
         transition: transform .2s;
@@ -54,6 +57,7 @@ require 'config.php';
     #title {
         color: black;
         text-align: center;
+        font-size: 20px;
     }
 
     a:visited,
@@ -69,7 +73,8 @@ require 'config.php';
 </style>
 
 <body>
-
+<div class="wrapper">
+        <div class="container-fluid">
 
     <?php
     if (isset($_GET['preferencesUpdated'])) {
@@ -129,6 +134,7 @@ require 'config.php';
 
     $name_sql = "SELECT `name` FROM `dances`";
     $pic_sql = "SELECT `image_url` FROM `dances`";
+    $id_sql =  "SELECT `id` FROM `dances`";
     
     $Sort_string = @$_GET['option'];
 
@@ -137,11 +143,12 @@ require 'config.php';
         }
     $name_sql = $name_sql. " ORDER BY " .$Sort_string. " ASC";
     $pic_sql = $pic_sql. " ORDER BY " .$Sort_string. " ASC";
-   
+    $id_sql = $id_sql. " ORDER BY " .$Sort_string. " ASC";
 
 
     $name_results = mysqli_query($link, $name_sql);
     $pic_results = mysqli_query($link, $pic_sql);
+    $id_results = mysqli_query($link, $id_sql);
 
     if (mysqli_num_rows($name_results) > 0) {
         while ($row = mysqli_fetch_assoc($name_results)) {
@@ -155,9 +162,15 @@ require 'config.php';
         }
     }
 
-
+    if (mysqli_num_rows($id_results) > 0) {
+        while ($row = mysqli_fetch_assoc($id_results)) {
+            $dance_ids[] = $row;
+        }
+    }
    
-
+if ($dances_count > count($dance_ids)) {
+    $dances_count = count($dance_ids);
+}
 
     //=============================================================================
     // Step 3: Now, display the dances in loop 
@@ -179,9 +192,10 @@ echo ' <h2 id="directions">Select a dance to know more about it</h2><br>';
                     $dance = $dance_names[$a]['name'];
                     $pic = $dance_pics[$a]['image_url'];
                     $pic = "images/dance_images/" . $pic;
+                    $id = $dance_ids[$a]['id'];
                     echo "
                     <td>
-                        <a href = 'display_the_dance.php?name=$dance' title = '$dance'>
+                        <a href = 'read.php?id=$id' title = '$dance'>
                         <img src='$pic' width='$image_width' height='$image_height'>
                             <div id = 'title'>$dance </div>
                             
@@ -195,54 +209,7 @@ echo ' <h2 id="directions">Select a dance to know more about it</h2><br>';
         }
     echo "</table>";
     ?>
-
-<!--Data Table -->
-<!--<script type="text/javascript" charset="utf8"
-        src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script> -->
-        <script type="text/javascript" charset="utf8"
-        src="https://code.jquery.com/jquery-3.3.1.js"></script> 
-<script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script> 
-<script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script> 
-<script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-
-        <script type="text/javascript" language="javascript">
-    $(document).ready( function () {
-        
-        $('#ceremoniesTable').DataTable( {
-            dom: 'lfrtBip',
-            buttons: [
-                'copy', 'excel', 'csv', 'pdf'
-            ] }
-        );
-
-        $('#ceremoniesTable thead tr').clone(true).appendTo( '#ceremoniesTable thead' );
-        $('#ceremoniesTable thead tr:eq(1) th').each( function (i) {
-            var title = $(this).text();
-            //$(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-    
-            $( 'input', this ).on( 'keyup change', function () {
-            /*    if ( table.column(i).search() !== this.value ) {
-                    table
-                        .column(i)
-                        .search( this.value )
-                        .draw();
-                } */
-            } );
-        } ); 
-    
-        var table = $('#ceremoniesTable').DataTable( {
-            orderCellsTop: true,
-            fixedHeader: true,
-            retrieve: true 
-        } );
-        
-    } );
-
-
+    </div>
+</div>
 </body>
-
 </html>
